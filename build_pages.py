@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Génère les pages HTML statiques du site Fernando BILO à partir de gabarits communs
+"""Génère les pages HTML statiques du site John Doe à partir de gabarits communs
 (header / footer) afin de garder une structure et une charte cohérentes."""
 
 import os
@@ -20,10 +20,11 @@ def nav_link(href, label, active_page, page_key):
 
 NAV_ITEMS = [
     ("index.html", "Accueil", "accueil"),
+    ("index.html#about", "À propos", None),
     ("services.html", "Services", "services"),
     ("realisations.html", "Réalisations", "realisations"),
     ("blog.html", "Blog", "blog"),
-    ("contact.html", "Me contacter", "contact"),
+    ("contact.html", "Contact", "contact"),
 ]
 
 
@@ -53,7 +54,7 @@ def build_header(active_page):
     return f"""  <header class="site-header sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark py-3">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Fernando<strong>&nbsp;BILO</strong></a>
+        <a class="navbar-brand" href="index.html">John<strong>&nbsp;Doe</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
           aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir la navigation">
           <span class="navbar-toggler-icon"></span>
@@ -73,10 +74,9 @@ FOOTER = """  <footer class="site-footer">
     <div class="container">
       <div class="row gy-4">
         <div class="col-md-3">
-          <h5>Fernando BILO</h5>
-          <p class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Paris, France</p>
-          <p class="mb-1"><i class="fa-solid fa-phone me-2"></i>07 54 33 78 65</p>
-          <p class="mb-3"><i class="fa-solid fa-envelope me-2"></i>dev-fernando@hotmail.fr</p>
+          <h5>John Doe</h5>
+          <p class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>12 rue des Développeurs, 75000 Paris</p>
+          <p class="mb-3"><i class="fa-solid fa-phone me-2"></i>+33 6 12 34 56 78</p>
           <div class="social-icons">
             <a href="https://github.com/github-john-doe" target="_blank" rel="noopener noreferrer nofollow" aria-label="Profil GitHub">
               <i class="fa-brands fa-github"></i>
@@ -95,29 +95,29 @@ FOOTER = """  <footer class="site-footer">
             <li class="mb-2"><a href="index.html">Accueil</a></li>
             <li class="mb-2"><a href="index.html#about">À propos</a></li>
             <li class="mb-2"><a href="services.html">Services</a></li>
-            <li class="mb-2"><a href="contact.html">Me contacter</a></li>
+            <li class="mb-2"><a href="contact.html">Contact</a></li>
             <li class="mb-2"><a href="mentions-legales.html">Mentions légales</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h5>Dernières réalisations</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="realisations.html#projet-1">Fresh food</a></li>
-            <li class="mb-2"><a href="realisations.html#projet-2">Restaurant Akira</a></li>
-            <li class="mb-2"><a href="realisations.html#projet-3">Espace bien-être</a></li>
+            <li class="mb-2"><a href="realisations.html#projet-1">CV en ligne React.js</a></li>
+            <li class="mb-2"><a href="realisations.html#projet-2">Application météo</a></li>
+            <li class="mb-2"><a href="realisations.html#projet-3">Plateforme e-commerce</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h5>Derniers articles</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="blog.html#article-1">Coder son site en HTML/CSS</a></li>
-            <li class="mb-2"><a href="blog.html#article-2">Vendre ses produits sur le web</a></li>
-            <li class="mb-2"><a href="blog.html#article-3">Se positionner sur Google</a></li>
+            <li class="mb-2"><a href="blog.html#article-1">Bien démarrer avec React</a></li>
+            <li class="mb-2"><a href="blog.html#article-2">Le responsive design en 2026</a></li>
+            <li class="mb-2"><a href="blog.html#article-3">Optimiser son SEO</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom text-center">
-        &copy; <span id="year"></span> Fernando BILO. Tous droits réservés. &mdash;
+        &copy; <span id="year"></span> John Doe. Tous droits réservés. &mdash;
         <a href="mentions-legales.html">Mentions légales</a>
       </div>
     </div>
@@ -151,7 +151,7 @@ def page(filename, title, description, active_page, body, robots="index, follow"
 BODY_INDEX = """
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Bonjour, je suis Fernando BILO</h1>
+      <h1>Bonjour, je suis John Doe</h1>
       <h2>Développeur Web &amp; futur alternant passionné par le front-end</h2>
       <a href="#about" class="btn btn-accent">En savoir plus</a>
     </div>
@@ -161,7 +161,7 @@ BODY_INDEX = """
     <div class="container">
       <div class="row align-items-center gy-4">
         <div class="col-lg-4 text-center">
-          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Photo de Fernando BILO" class="about-photo" />
+          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Photo de John Doe" class="about-photo" />
         </div>
         <div class="col-lg-8">
           <h2 class="section-title">À propos de moi</h2>
@@ -178,24 +178,20 @@ BODY_INDEX = """
 
           <h3 class="h5 mt-4 mb-3">Mes compétences</h3>
           <div class="skill-bar">
-            <div class="d-flex justify-content-between"><span>HTML5</span><span>90%</span></div>
-            <div class="progress"><div class="progress-bar skill-html" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div></div>
+            <div class="d-flex justify-content-between"><span>HTML / CSS</span><span>90%</span></div>
+            <div class="progress"><div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="d-flex justify-content-between"><span>CSS3</span><span>80%</span></div>
-            <div class="progress"><div class="progress-bar skill-css" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
+            <div class="d-flex justify-content-between"><span>JavaScript</span><span>80%</span></div>
+            <div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="d-flex justify-content-between"><span>JavaScript</span><span>70%</span></div>
-            <div class="progress"><div class="progress-bar skill-js" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div></div>
+            <div class="d-flex justify-content-between"><span>React.js</span><span>70%</span></div>
+            <div class="progress"><div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="d-flex justify-content-between"><span>PHP</span><span>60%</span></div>
-            <div class="progress"><div class="progress-bar skill-php" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div></div>
-          </div>
-          <div class="skill-bar">
-            <div class="d-flex justify-content-between"><span>React</span><span>50%</span></div>
-            <div class="progress"><div class="progress-bar skill-react" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div>
+            <div class="d-flex justify-content-between"><span>Bootstrap</span><span>85%</span></div>
+            <div class="progress"><div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div></div>
           </div>
         </div>
       </div>
@@ -247,8 +243,8 @@ BODY_SERVICES = f"""
 
 page(
     "services.html",
-    "Services — Fernando BILO",
-    "Les services proposés par Fernando BILO : développement front-end, React.js, SEO et responsive design.",
+    "Services — John Doe",
+    "Les services proposés par John Doe : développement front-end, React.js, SEO et responsive design.",
     "services",
     BODY_SERVICES,
 )
@@ -257,22 +253,21 @@ page(
 # Réalisations
 # ---------------------------------------------------------------------------
 PROJECTS = [
-    ("projet-1", "https://picsum.photos/seed/fernando-project-1/600/400", "Fresh food", "Réalisation d'un site avec commande en ligne.", "Site réalisé avec PHP et MySQL"),
-    ("projet-2", "https://picsum.photos/seed/fernando-project-2/600/400", "Restaurant Akira", "Réalisation d'un site vitrine.", "Site réalisé avec WordPress"),
-    ("projet-3", "https://picsum.photos/seed/fernando-project-3/600/400", "Espace bien-être", "Réalisation d'un site vitrine pour un patricien de bien-être.", "Site réalisé en HTML/CSS"),
+    ("projet-1", "https://picsum.photos/seed/johndoe-project-1/600/400", "CV en ligne React.js", "Site vitrine et CV interactif développé en HTML, CSS, Bootstrap et React.js."),
+    ("projet-2", "https://picsum.photos/seed/johndoe-project-2/600/400", "Application météo", "Application web consommant une API météo publique, construite avec JavaScript."),
+    ("projet-3", "https://picsum.photos/seed/johndoe-project-3/600/400", "Plateforme e-commerce", "Maquette d'une boutique en ligne responsive avec panier et filtres produits."),
 ]
 
 proj_cards = []
-for anchor, img, title, text, tech in PROJECTS:
+for anchor, img, title, text in PROJECTS:
     proj_cards.append(f"""        <div class="col-md-6 col-lg-4" id="{anchor}">
           <div class="card card-project h-100">
             <img src="{img}" class="card-img-top" alt="Aperçu du projet {title}" />
-            <div class="card-body text-center">
+            <div class="card-body">
               <h3 class="h5 card-title">{title}</h3>
               <p class="card-text">{text}</p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Voir</a>
+              <a href="#" class="btn btn-outline-primary btn-sm">Voir le projet</a>
             </div>
-            <div class="card-footer text-center text-muted small">{tech}</div>
           </div>
         </div>""")
 
@@ -290,8 +285,8 @@ BODY_REALISATIONS = f"""
 
 page(
     "realisations.html",
-    "Réalisations — Fernando BILO",
-    "Portfolio des projets réalisés par Fernando BILO pendant sa formation de développeur web.",
+    "Réalisations — John Doe",
+    "Portfolio des projets réalisés par John Doe pendant sa formation de développeur web.",
     "realisations",
     BODY_REALISATIONS,
 )
@@ -300,25 +295,24 @@ page(
 # Blog
 # ---------------------------------------------------------------------------
 ARTICLES = [
-    ("article-1", "https://picsum.photos/seed/fernando-blog-1/600/400", "Coder son site en HTML/CSS", "Some quick example text to build on the card title and make up the bulk of the card's content.", "22 août 2026"),
-    ("article-2", "https://picsum.photos/seed/fernando-blog-2/600/400", "Vendre ses produits sur le web", "Some quick example text to build on the card title and make up the bulk of the card's content.", "20 août 2026"),
-    ("article-3", "https://picsum.photos/seed/fernando-blog-3/600/400", "Se positionner sur Google", "Some quick example text to build on the card title and make up the bulk of the card's content.", "1 août 2026"),
-    ("article-4", "https://picsum.photos/seed/fernando-blog-4/600/400", "Coder en responsive design", "Some quick example text to build on the card title and make up the bulk of the card's content.", "31 juillet 2026"),
-    ("article-5", "https://picsum.photos/seed/fernando-blog-5/600/400", "Techniques de référencement", "Some quick example text to build on the card title and make up the bulk of the card's content.", "30 juillet 2026"),
-    ("article-6", "https://picsum.photos/seed/fernando-blog-6/600/400", "Apprendre à coder", "Some quick example text to build on the card title and make up the bulk of the card's content.", "12 juillet 2026"),
+    ("article-1", "https://picsum.photos/seed/johndoe-blog-1/600/400", "Bien démarrer avec React", "Les bases indispensables pour comprendre les composants, les props et les hooks."),
+    ("article-2", "https://picsum.photos/seed/johndoe-blog-2/600/400", "Le responsive design en 2026", "Les bonnes pratiques actuelles pour concevoir des interfaces adaptées à tous les écrans."),
+    ("article-3", "https://picsum.photos/seed/johndoe-blog-3/600/400", "Optimiser son SEO", "Comment structurer son HTML et son contenu pour améliorer son référencement naturel."),
+    ("article-4", "https://picsum.photos/seed/johndoe-blog-4/600/400", "Bootstrap 5 : les nouveautés", "Tour d'horizon des composants et utilitaires les plus utiles de Bootstrap 5."),
+    ("article-5", "https://picsum.photos/seed/johndoe-blog-5/600/400", "Accessibilité web : les bases", "Les premiers réflexes pour rendre un site accessible à tous les utilisateurs."),
+    ("article-6", "https://picsum.photos/seed/johndoe-blog-6/600/400", "Trouver son alternance", "Mes conseils pour préparer sa recherche d'alternance en développement web."),
 ]
 
 article_cards = []
-for anchor, img, title, text, published in ARTICLES:
+for anchor, img, title, text in ARTICLES:
     article_cards.append(f"""        <div class="col-md-6 col-lg-4" id="{anchor}">
           <div class="card card-article h-100">
             <img src="{img}" class="card-img-top" alt="Illustration de l'article {title}" />
             <div class="card-body">
               <h3 class="h5 card-title">{title}</h3>
               <p class="card-text">{text}</p>
-              <a href="#" class="btn btn-accent btn-sm">Lire la suite</a>
+              <a href="#" class="btn btn-outline-primary btn-sm">Lire l'article</a>
             </div>
-            <div class="card-footer text-muted small">Publié le {published}</div>
           </div>
         </div>""")
 
@@ -394,9 +388,9 @@ BODY_CONTACT = """
         <div class="col-lg-5">
           <h2 class="section-title">Mes coordonnées</h2>
           <ul class="list-unstyled mb-4">
-            <li class="mb-3"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Paris, France</li>
-            <li class="mb-3"><i class="fa-solid fa-phone me-2 text-primary"></i>07 54 33 78 65</li>
-            <li class="mb-3"><i class="fa-solid fa-envelope me-2 text-primary"></i>dev-fernando@hotmail.fr</li>
+            <li class="mb-3"><i class="fa-solid fa-location-dot me-2 text-primary"></i>12 rue des Développeurs, 75000 Paris</li>
+            <li class="mb-3"><i class="fa-solid fa-phone me-2 text-primary"></i>+33 6 12 34 56 78</li>
+            <li class="mb-3"><i class="fa-solid fa-envelope me-2 text-primary"></i>contact@johndoe-dev.fr</li>
           </ul>
           <div class="contact-map">
             <iframe
@@ -436,8 +430,8 @@ BODY_MENTIONS = """
           </h2>
           <div id="editeur" class="accordion-collapse collapse show" data-bs-parent="#legalAccordion">
             <div class="accordion-body">
-              <p>Le site <strong>fernandobilo-dev.fr</strong> est édité par Fernando BILO, développeur web, basé à
-              Paris, France. Téléphone : 07 54 33 78 65. Contact : dev-fernando@hotmail.fr.</p>
+              <p>Le site <strong>johndoe-dev.fr</strong> est édité par John Doe, développeur web, domicilié
+              12 rue des Développeurs, 75000 Paris. Contact : contact@johndoe-dev.fr.</p>
             </div>
           </div>
         </div>
@@ -476,8 +470,8 @@ BODY_MENTIONS = """
 
 page(
     "mentions-legales.html",
-    "Mentions légales — Fernando BILO",
-    "Mentions légales du site de Fernando BILO.",
+    "Mentions légales — John Doe",
+    "Mentions légales du site de John Doe.",
     None,
     BODY_MENTIONS,
     robots="noindex, nofollow",

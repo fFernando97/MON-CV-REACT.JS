@@ -1,0 +1,361 @@
+/* =========================================================
+   John Doe - CV en ligne
+   Feuille de style personnalisée (charte graphique du brief)
+   ========================================================= */
+
+:root {
+  --color-bg: #eeeeee;
+  --color-text: #444444;
+  --color-title: #1e1e1e;
+  --color-strong: #000000;
+  --color-accent: #0d6efd;
+  --color-accent-hover: #298eff;
+  --color-icon-hover: #cde1f8;
+  --font-main: "Nunito Sans", sans-serif;
+}
+
+/* -------------------- Base -------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--color-title);
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--color-strong);
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin-top: 0.75rem;
+}
+
+.section-title.text-center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -------------------- Header / Navbar -------------------- */
+.site-header {
+  background-color: var(--color-title);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+}
+
+.site-header .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.25s ease, background-color 0.25s ease;
+  border-radius: 0.25rem;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link:focus {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-header .nav-link.active {
+  color: var(--color-accent-hover);
+  font-weight: 700;
+}
+
+/* -------------------- Hero (page d'accueil) -------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  max-width: 720px;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero-content h2 {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* -------------------- À propos -------------------- */
+.about-photo {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.skill-bar {
+  margin-bottom: 1.25rem;
+}
+
+.skill-bar .progress {
+  height: 0.6rem;
+  background-color: #ddd;
+}
+
+.skill-bar .progress-bar {
+  background-color: var(--color-accent);
+}
+
+.skill-bar .progress-bar.skill-html {
+  background-color: #e34c26;
+}
+
+.skill-bar .progress-bar.skill-css {
+  background-color: #0ea5e9;
+}
+
+.skill-bar .progress-bar.skill-js {
+  background-color: #f0b400;
+}
+
+.skill-bar .progress-bar.skill-php {
+  background-color: #1a9850;
+}
+
+.skill-bar .progress-bar.skill-react {
+  background-color: var(--color-accent);
+}
+
+/* -------------------- Services -------------------- */
+.service-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.service-card .service-icon {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+  transition: color 0.25s ease;
+}
+
+.service-card:hover .service-icon {
+  color: var(--color-icon-hover);
+}
+
+/* -------------------- Réalisations / Blog cards -------------------- */
+.card-project img,
+.card-article img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-project,
+.card-article {
+  border: none;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-project:hover,
+.card-article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+/* -------------------- Contact -------------------- */
+.contact-hero {
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
+  color: #fff;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 105, 255, 0.5);
+}
+
+.contact-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--color-title);
+}
+
+.contact-map iframe {
+  width: 100%;
+  min-height: 300px;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+/* -------------------- Mentions légales -------------------- */
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
+  background-color: var(--color-accent);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* -------------------- Footer -------------------- */
+.site-footer {
+  background-color: var(--color-title);
+  color: rgba(255, 255, 255, 0.75);
+  padding-top: 3rem;
+}
+
+.site-footer h5 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.site-footer .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin-right: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  font-size: 0.85rem;
+}
+
+/* -------------------- Bouton retour en haut -------------------- */
+#back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-title);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  border: none;
+  transition: background-color 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+
+#back-to-top.show {
+  display: flex;
+  opacity: 1;
+}
+
+#back-to-top:hover {
+  background-color: var(--color-accent-hover);
+  color: #ffffff;
+}
+
+/* -------------------- Utilitaires -------------------- */
+.bg-page {
+  background-color: var(--color-bg);
+}

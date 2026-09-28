@@ -1,0 +1,15 @@
+# Dépendances
+node_modules/
+**/node_modules/
+
+# Builds
+dist/
+**/dist/
+dist-ssr/
+
+# Fichiers système / éditeur
+.DS_Store
+*.local
+.env
+__pycache__/
+*.pyc

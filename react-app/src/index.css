@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap");
+
+:root {
+  --color-bg: #eeeeee;
+  --color-text: #444444;
+  --color-title: #1e1e1e;
+  --color-accent: #0d6efd;
+  --color-accent-hover: #298eff;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3 {
+  color: var(--color-title);
+  font-weight: 600;
+}
+
+strong {
+  color: #000;
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header p {
+  margin-top: 0.25rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 0.6rem 1.4rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.state-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.state-message.error {
+  color: #b02a37;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 220px;
+}
+
+.profile-info h2 {
+  margin: 0 0 0.25rem;
+}
+
+.profile-username {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.profile-bio {
+  margin-bottom: 1rem;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.profile-stats div {
+  text-align: center;
+}
+
+.profile-stats strong {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.profile-meta {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
